@@ -5,16 +5,16 @@
 body {
     padding: 20px 60px;
     font-family: Scheherazade New;
-    background: linear-gradient(70deg, #e8eaec, #e0dddd);
+    /* background: linear-gradient(70deg, #ffffff, #ffffff); */
     background-repeat: no-repeat;
 }
 
 a {
     text-decoration: none;
-    color:  white;
+    color:  #979797;
     /* text-shadow: 2px 2px #959595; */
 }
  a:hover {
-     color: #4285f4;
+     color: #111111;
  }
 
