@@ -10,6 +10,9 @@ const Header = ({ currentUser }) => (
       <Logo className="logo" />
     </Link>
     <div className="options">
+      <Link className="option" to="/">
+        HOME
+      </Link>
       <Link className="option" to="/shop">
         SHOP
       </Link>
@@ -23,7 +26,7 @@ const Header = ({ currentUser }) => (
         : 
         ( <Link className="option" to="/signin">
             SIGN IN
-            </Link>
+          </Link>
       )}
     </div>
   </div>
