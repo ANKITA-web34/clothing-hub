@@ -8,12 +8,12 @@ import "./App.css";
 import HomePage from "./Pages/homepage/homepage.component";
 import ShopPage from "./Pages/Shop/shop.component";
 import SignINAndSignUpPage from "./Pages/Sign-in-and-Sign-up/Sign-in-and-Sign-up.component";
+import CheckoutPage from "./Pages/Checkout/checkout.component";
+
 import Header from "./Components/Header/header.component";
-import {
-  auth,
-  createUserProfileDocument,
-  signInWithGoogle,
-} from "./firebase/firebase.utils";
+
+import { auth,createUserProfileDocument } from "./firebase/firebase.utils";
+
 import { setCurrentUser } from "./Redux/User/user.actions";
 import { selectCartHidden } from "./Redux/Cart/cart.selector";
 
@@ -50,17 +50,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              this.props.currentUser ? (
+          <Route exact path="/checkout" component={CheckoutPage} />
+          <Route exact path="/signin" render={() => this.props.currentUser ? (
                 <Redirect to="/" />
               ) : (
                 <SignINAndSignUpPage />
               )
-            }
-          />
+          }/>
         </Switch>
       </div>
     );
