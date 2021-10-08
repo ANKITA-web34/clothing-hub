@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ import {
   signInWithGoogle,
 } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./Redux/User/user.actions";
+import { selectCartHidden } from "./Redux/Cart/cart.selector";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -64,8 +66,8 @@ class App extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector ({
+  currentUser: selectCartHidden,
 });
 
 const mapdispatchToProps = (dispatch) => ({
