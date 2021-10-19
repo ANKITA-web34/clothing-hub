@@ -15,7 +15,8 @@ import Header from "./Components/Header/header.component";
 import { auth,createUserProfileDocument } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./Redux/User/user.actions";
-import { selectCartHidden } from "./Redux/Cart/cart.selector";
+import { selectCurrentUser } from "./Redux/User/user.selectors";
+
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -24,6 +25,7 @@ class App extends React.Component {
     const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      console.log(userAuth)
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -63,7 +65,7 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = createStructuredSelector ({
-  currentUser: selectCartHidden,
+  currentUser: selectCurrentUser,
 });
 
 const mapdispatchToProps = (dispatch) => ({
