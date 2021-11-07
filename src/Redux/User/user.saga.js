@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call } from "@redux-saga/core/effects";
+import { takeLatest, put, all, call } from 'redux-saga/effects';
 import { auth, createUserProfileDocument, getCurrentUser, googleProvider } from "../../firebase/firebase.utils";
 import { SignInFailuer, SignInSuccess, signOutSuccess, signOutFailure} from "./user.actions";
 import UserActionTypes from "./user.types";
@@ -17,17 +17,6 @@ export function* getSnapshoptFromUserAuth(userAuth) {
 };
 
 
-/*..................................................... */
-
-export function* isUserAuthenticated() {
-    try {
-        const userAuth = yield getCurrentUser();
-        if(!userAuth) return;
-        yield getSnapshoptFromUserAuth(userAuth);
-    } catch(error) {
-        yield put(SignInFailuer(error))
-    }
-};
 
 /*..................................................... */
 
@@ -49,6 +38,19 @@ export function* signInWithEmail({payload: { email, password }}) {
     }
 };
 
+/*..................................................... */
+
+export function* isUserAuthenticated() {
+    try {
+        const userAuth = yield getCurrentUser();
+        if(!userAuth) return;
+        yield getSnapshoptFromUserAuth(userAuth);
+    } catch(error) {
+        yield put(SignInFailuer(error))
+    }
+};
+
+/*......................................................... */
 export function* signOut() {
     try {
         yield auth.signOut();
