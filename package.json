@@ -14,12 +14,16 @@
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
+    "@heroku/buildpack-registry": "^1.0.1",
     "body-parser": "^1.18.3",
     "dotenv": "7.0.0",
     "express": "^4.16.4",
-    "stripe": "6.28.0"
+    "stripe": "6.28.0",
+    "true-myth": "^4.1.1"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/stripe": "^8.0.417",
     "concurrently": "^4.0.1",
     "nodemon": "^1.19.1"
   }

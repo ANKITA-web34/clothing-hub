@@ -9,7 +9,7 @@ const StripeCheckoutButton = ({ price }) => {
 
   const onToken = (token) => {
     axios({
-      url: 'payment',
+      url: 'https://git.heroku.com/anki-live-node.git/payment',
       method: 'post',
       data: {
         amount: priceForStripe,
